@@ -1,0 +1,67 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="titulo">Productos</h3>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body"> 
+                    <span class="titulo"> AGREGAR PRODUCTO </span>
+                    <form [formGroup]="form" (ngSubmit)="agregarProducto()">
+                        <div class="input-group input-group-lg mb-3"> 
+                            <span class="input-group-text">
+                                <i class="fa-solid fa-dice-d6" 
+                                [class.green-icon]="this.form.get('name')?.valid"
+                                [class.red-icon]="this.form.get('name')?.invalid && this.form.get('name')?.touched"></i> 
+                            </span>
+                            <input formControlName="name" type="text" class="form-control" placeholder="Name Product">
+                        </div>
+                        <div class="input-group input-group-lg mb-3"> 
+                            <span class="input-group-text">
+                                <i class="fa-solid fa-file-lines"
+                                [class.green-icon]="this.form.get('description')?.valid"
+                                [class.red-icon]="this.form.get('description')?.invalid && this.form.get('description')?.touched">
+                                </i>    
+                            </span>
+                            <input formControlName="description" maxlength="200" type="text" class="form-control" placeholder="Description">
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="input-group input-group-lg mb-3"> 
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-money-bill-1"
+                                        [class.green-icon]="this.form.get('price')?.valid"
+                                        [class.red-icon]="this.form.get('price')?.invalid && this.form.get('price')?.touched"
+                                        ></i>        
+                                    </span>
+                                    <input formControlName="price" maxlength="5" type="text" class="form-control" placeholder="Price">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="input-group input-group-lg mb-3"> 
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-store"
+                                        [class.green-icon]="this.form.get('quantity')?.valid"
+                                        [class.red-icon]="this.form.get('quantity')?.invalid && this.form.get('quantity')?.touched"></i>
+                                    </span>
+                                    <input formControlName="quantity" type="text" maxlength="3" class="form-control" placeholder="Quantity">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button [disabled]="this.form.invalid" class="btn btn-success btn-lg" type="submit"><i class="fas fa-database"></i>&nbsp;ACEPTAR</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>       
+    </div>
+</div>
+
+ 

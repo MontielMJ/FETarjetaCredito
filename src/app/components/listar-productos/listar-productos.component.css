@@ -1,0 +1,14 @@
+.fas{
+    cursor: pointer;
+}
+.green-icon{
+    color:lawngreen;
+}
+.red-icon{
+    color:red;
+}
+
+.tableList{
+border-radius: 50px;
+border: 2px;
+}

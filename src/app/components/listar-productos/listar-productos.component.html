@@ -1,0 +1,35 @@
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="titulo">Productos</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body ">  
+                    <span class="titulo"> 
+                        LISTADO DE PRODUCTOS
+                    </span>
+                    <button class="btn btn-success float-end" routerLink="/crear-producto">NUEVO</button>
+                    <table class="table  table-striped mt-3 table-bordered">
+                        <tbody>
+                            <tr *ngFor="let producto of listProductos">
+                                <td>{{producto.name}}</td>
+                                <td>{{producto.description}}</td>
+                                <td>{{producto.quantity}}</td>
+                                <td><i class="fas fa-edit text-info"></i></td>
+                                <td><i class="fas fa-trash-alt text-danger"></i></td>
+                            </tr>
+                        </tbody> 
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

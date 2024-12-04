@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CardService } from 'src/services/tarjetas.services';
@@ -6,7 +7,8 @@ import { CardService } from 'src/services/tarjetas.services';
     selector: 'app-lista-tarjetas',
     templateUrl: './lista-tarjetas.component.html',
     styleUrls: ['./lista-tarjetas.component.css'],
-    standalone: false
+    standalone: true,
+    imports: [CommonModule]
 })
 export class ListaTarjetasComponent implements OnInit {
   listTarjetas:any[]=[];

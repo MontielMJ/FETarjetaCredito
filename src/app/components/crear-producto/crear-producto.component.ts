@@ -1,5 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import Producto from 'src/models/Producto';
@@ -9,11 +10,12 @@ import { ProductoService } from 'src/services/producto.service';
     selector: 'app-crear-producto',
     templateUrl: './crear-producto.component.html',
     styleUrls: ['./crear-producto.component.css'],
-    standalone: false
+    standalone: true,
+    imports: [CommonModule,ReactiveFormsModule]
 })
 export class CrearProductoComponent implements OnInit {
-  form:UntypedFormGroup;
-  constructor(private fb: UntypedFormBuilder, 
+  form:FormGroup;
+  constructor(private fb: FormBuilder, 
     private _productoService : ProductoService, 
     private toastr: ToastrService,
     private router: Router) {

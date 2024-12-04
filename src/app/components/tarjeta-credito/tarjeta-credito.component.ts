@@ -1,5 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms'
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import Card from 'src/models/Card';
@@ -10,13 +11,14 @@ import { CardService } from 'src/services/tarjetas.services';
     selector: 'app-tarjeta-credito',
     templateUrl: './tarjeta-credito.component.html',
     styleUrls: ['./tarjeta-credito.component.css'],
-    standalone: false
+    standalone: true,
+    imports:[CommonModule,ReactiveFormsModule]
 })
 
 export class TarjetaCreditoComponent implements OnInit {
 
-form:UntypedFormGroup;
-constructor(private fb: UntypedFormBuilder,
+form:FormGroup;
+constructor(private fb: FormBuilder,
             private toastr: ToastrService,
             private _cardService : CardService, 
             private router: Router

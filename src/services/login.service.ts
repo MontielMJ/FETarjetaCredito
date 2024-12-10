@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { Login } from "src/models/Login";
 
 @Injectable({providedIn : 'root'})
 
@@ -11,7 +12,8 @@ constructor (private http:HttpClient)
 
     }
 
-    getToken(): Observable<any>{
-        return this.http.get(this.url);
+    getToken(login: Login): Observable<any> {
+        const headers = { 'Content-Type': 'application/json' }; // Configura los encabezados
+        return this.http.post(this.url, login, { headers }); // Usa POST con el body
     }
 }

@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 .body{
     background: #80ffee;
-    background: -webkit-gradient(to right, #ffffff,#80ffee);
-    background: linear-gradient(to right, #ffffff,#80ffee);
+    background: -webkit-gradient(to right, #ffffff,#d1d1d1);
+    background: linear-gradient(to right, #ffffff,#d1d1d1);
 }
 .titulo{
     font-family: 'Zen Kurenaido', sans-serif;

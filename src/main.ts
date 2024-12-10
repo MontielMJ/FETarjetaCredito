@@ -6,8 +6,9 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
 import { routes } from './app/app-routing';
 import { ReactiveFormsModule } from '@angular/forms';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { authInterceptor } from './app/custom/auth.interceptor';
 
 if (environment.production) {
   enableProdMode();
@@ -15,10 +16,9 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
-    ToastrModule,
     provideRouter(routes),
-    provideHttpClient(),
-    importProvidersFrom(ReactiveFormsModule),
+    provideHttpClient(withInterceptors([authInterceptor])),
+    importProvidersFrom(ReactiveFormsModule, ToastrModule.forRoot()),
   ],
 }).catch(err => console.error(err));
 

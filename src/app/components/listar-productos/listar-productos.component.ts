@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Producto from 'src/models/Producto';
 import { ProductoService } from 'src/services/producto.service';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms'
-import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { CommonModule } from '@angular/common';
 
 
@@ -17,12 +15,10 @@ import { CommonModule } from '@angular/common';
 })
 
   export class ListarProductosComponent implements OnInit{
-    form:UntypedFormGroup;
+    form:FormGroup;
     listProductos : Producto[]=[];
-  constructor(private fb: UntypedFormBuilder, 
-    private _productoService : ProductoService, 
-    private toastr: ToastrService,
-    private router: Router) 
+  constructor(private fb: FormBuilder, 
+    private _productoService : ProductoService) 
     {
       this.form=this.fb.group({
           name:['',Validators.required],
@@ -37,6 +33,7 @@ import { CommonModule } from '@angular/common';
   }
 
   ObtenerProductos(){
+    console.log("obtener productos")
     this._productoService.getProductos().subscribe(data => {
         this.listProductos=data;
        // console.log(data);

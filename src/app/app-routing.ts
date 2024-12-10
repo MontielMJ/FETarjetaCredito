@@ -5,6 +5,7 @@ import { TarjetaCreditoComponent } from './components/tarjeta-credito/tarjeta-cr
 import { ListaTarjetasComponent } from './components/lista-tarjetas/lista-tarjetas.component'
 import { LoginComponent } from './components/login/login.component';
 import { Routes } from '@angular/router';
+import { authGuard } from './custom/auth.guard';
 
 
 export const routes: Routes = [
@@ -12,7 +13,7 @@ export const routes: Routes = [
   { path: 'crear-tarjeta', component: TarjetaCreditoComponent },
   { path: 'listar-tarjetas', component: ListaTarjetasComponent },
   { path: 'listar-productos', component: ListarProductosComponent },
-  { path: '', component: LoginComponent }
+  { path: 'login', component: LoginComponent, canActivate: [authGuard]}
 ];
 
 

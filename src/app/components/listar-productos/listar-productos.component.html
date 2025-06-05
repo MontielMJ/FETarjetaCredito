@@ -17,13 +17,15 @@
                         LISTADO DE PRODUCTOS
                     </span>
                     <button class="btn btn-success float-end" routerLink="/crear-producto">NUEVO</button>
+                    
                     <table class="table  table-striped mt-3 table-bordered">
                         <tbody>
                             <tr *ngFor="let producto of listProductos">
+                                <td>{{producto.id}}</td>
                                 <td>{{producto.name}}</td>
                                 <td>{{producto.description}}</td>
                                 <td>{{producto.quantity}}</td>
-                                <td><i class="fas fa-edit text-info"></i></td>
+                                <td><i class="fas fa-edit text-info" (click)="GetProductById(producto.id)"></i></td>
                                 <td><i class="fas fa-trash-alt text-danger"></i></td>
                             </tr>
                         </tbody> 

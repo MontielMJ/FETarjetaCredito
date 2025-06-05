@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">MiApp</a>
+
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle btn btn-link"
+                (click)="toggleDropdown('productos')"
+                [attr.aria-expanded]="activeDropdown === 'productos'">
+                Productos
+                </a>
+                <div class="dropdown-menu"
+                    [class.show]="activeDropdown === 'productos'">
+                <a class="dropdown-item" routerLink="/crear-producto" (click)="closeDropdown()">Crear producto</a>
+                <a class="dropdown-item" routerLink="/listar-productos" (click)="closeDropdown()">Consulta Productos</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle btn btn-link"
+                (click)="toggleDropdown('tarjetas')"
+                [attr.aria-expanded]="activeDropdown === 'tarjetas'">
+                Tarjetas
+                </a>
+                <div class="dropdown-menu"
+                    [class.show]="activeDropdown === 'tarjetas'">
+                <a class="dropdown-item" routerLink="/crear-tarjeta" (click)="closeDropdown()">Crear tarjeta</a>
+                <a class="dropdown-item" routerLink="/listar-tarjetas" (click)="closeDropdown()">Consulta Tarjetas</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+  </div>
+</nav>

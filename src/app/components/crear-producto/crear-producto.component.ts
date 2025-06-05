@@ -32,6 +32,7 @@ export class CrearProductoComponent implements OnInit {
 
   agregarProducto(){
     const producto:  Producto={
+         id:0,
          name: this.form.get('name')?.value,
          description: this.form.get('description')?.value,
          price: this.form.get('price')?.value,
@@ -46,5 +47,9 @@ export class CrearProductoComponent implements OnInit {
         console.log(error);
         this.form.reset();
      })
+  }
+
+  GetProductById(producto : any) {
+   this.router.navigate(['/detalle-producto', producto.id]);
   }
 }

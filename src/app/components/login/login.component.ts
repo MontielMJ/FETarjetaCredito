@@ -35,21 +35,20 @@ form: any;
       email: this.formLogin.get('email')?.value,
       password: this.formLogin.get('password')?.value, 
     }
-      this._loginService.getToken(login).subscribe(
-        data => {
-        if(data.isSuccess){
-            localStorage.setItem("Token", data.token);
-            console.log(this.router);
+      this._loginService.getToken(login).subscribe({
+        next: (response)=>{
+          debugger;
+          if(response.isSuccess){
+            localStorage.setItem("token", response.token);
            this.router.navigate(["listar-productos"]);
-        }else{
-          alert("Credenciales son incorrectas");
+          }
+          else{
+            alert("Credenciales son incorrectas");
+          }
+        },
+        error:(error)=>{
+          console.log(error.message);
         }
-       
-      }, error=>{
-        console.log(error.message);
-    })
+    });
   }
-
-
-
 }

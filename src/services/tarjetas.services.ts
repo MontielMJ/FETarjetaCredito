@@ -3,14 +3,10 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import  Card  from 'src/models/Card';
 
-
-
-
-
 @Injectable({providedIn : 'root'})
 
 export class CardService{
-    url='http://localhost:3000/cards/tarjetas/';
+    url='http://localhost:3000/cards/tarjetas';
     constructor (private http:HttpClient)
     {
 
@@ -21,10 +17,10 @@ export class CardService{
     createCard(tarjeta: Card): Observable<any>{
         return this.http.post(this.url, tarjeta);
     }
-   /* getProductoById(id : string): Observable<any>{
+    getProductoById(id : string): Observable<any>{
         return this.http.get(this.url + id);
     }
-    
+   /* 
     updateProduct(producto: Producto): Observable<any>{
         return this.http.put(this.url, producto);
     }

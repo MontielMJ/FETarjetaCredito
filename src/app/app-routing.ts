@@ -6,14 +6,17 @@ import { ListaTarjetasComponent } from './components/lista-tarjetas/lista-tarjet
 import { LoginComponent } from './components/login/login.component';
 import { Routes } from '@angular/router';
 import { authGuard } from './custom/auth.guard';
+import { EditarProductoComponent } from './components/editar-producto/editar-producto.component';
 
 
-export const routes: Routes = [
-  { path: 'crear-producto', component: CrearProductoComponent },
-  { path: 'crear-tarjeta', component: TarjetaCreditoComponent },
-  { path: 'listar-tarjetas', component: ListaTarjetasComponent },
-  { path: 'listar-productos', component: ListarProductosComponent },
-  { path: 'login', component: LoginComponent, canActivate: [authGuard]}
+export const routes: Routes= [
+  { path: "",  component: LoginComponent},
+  { path: "crear-producto", component: CrearProductoComponent },
+  { path: "crear-tarjeta", component: TarjetaCreditoComponent },
+  { path: "listar-tarjetas", component: ListaTarjetasComponent },
+  { path: "listar-productos", component: ListarProductosComponent },
+  { path: "detalle-producto/:id", component: EditarProductoComponent},
+  { path: "login", component: LoginComponent, canActivate: [authGuard]}
 ];
 
 

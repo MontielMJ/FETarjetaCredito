@@ -37,7 +37,6 @@ form: any;
     }
       this._loginService.getToken(login).subscribe({
         next: (response)=>{
-          debugger;
           if(response.isSuccess){
             localStorage.setItem("token", response.token);
            this.router.navigate(["listar-productos"]);

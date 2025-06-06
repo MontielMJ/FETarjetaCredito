@@ -36,5 +36,8 @@
             </li>
         </ul>
     </div>
+    <button class="btn btn-outline-success" 
+            *ngIf="isLoggedIn" 
+            (click)="logout()">Logout</button>
   </div>
 </nav>

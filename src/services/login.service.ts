@@ -12,8 +12,19 @@ constructor (private http:HttpClient)
 
     }
 
+    // Método para obtener el token de autenticación
     getToken(login: Login): Observable<any> {
         const headers = { 'Content-Type': 'application/json' }; // Configura los encabezados
         return this.http.post(this.url, login, { headers }); // Usa POST con el body
+    }
+    // Método para verificar si el usuario está logueado
+    isLoggedIn(): boolean {
+        const token = localStorage.getItem('token');
+        return !!token; // true si existe un token
+    }
+
+    // Método para eliminar el token del almacenamiento local
+    logout(): void {
+        localStorage.removeItem('token');
     }
 }

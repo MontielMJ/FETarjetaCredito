@@ -51,7 +51,6 @@ saveProducts(){
 detalleProducto(id : number){
   this._productService.getProductoById(id.toString()).subscribe({
     next: (response) => {
-      debugger;
      this.producto = response.data;
      console.log(this.producto);
     },
